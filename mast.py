@@ -15,12 +15,12 @@ Mastodon.create_app(
 from mastodon import Mastodon
 
 mastodon = Mastodon(
-    client_id = 'pytooter_clientcred.secret',
+    client_id = 'F5ThGzIb6ROI4AJ7dYltZvCFi3QASavJXqVc0gt2Tdk',
     api_base_url = 'https://mastodon.social'
 )
 mastodon.log_in(
-    'my_login_email@example.com',
-    'incrediblygoodpassword',
+    'akshatsaini1@gmail.com',
+    'password@@@@',
     to_file = 'pytooter_usercred.secret'
 )
 
@@ -29,7 +29,7 @@ mastodon.log_in(
 from mastodon import Mastodon
 
 mastodon = Mastodon(
-    access_token = 'pytooter_usercred.secret',
+    access_token = 'CTtR4HAzIqDYZF2IyRUY4E22qjRihhypaeHDznB8vwg',
     api_base_url = 'https://mastodon.social'
 )
-mastodon.toot('Tooting from python using #mastodonpy !')
+mastodon.toot('Tooting from python using #mastodonpy Yay !') 
