@@ -41,7 +41,7 @@ def video_identification(q, maxResults):
         type='video',
         q=q,
         order='date',
-        videoDuration='short',
+        videoDuration='medium',
         maxResults=maxResults  # 0 to 50 inclusive
     ).execute()
 
@@ -79,9 +79,40 @@ def get_vid_stats(videoId):
             'Video Statistics': statistics,
             'More Content Details': contentDetails
         }
+        
+# Below function is just for fetching the description section of the video and putting it in a txt file. - To snatch links.         
+def get_vid_description(videoId):
+    # This function needs a request call
+    request = youtube.videos().list(
+        part="snippet,contentDetails,statistics",
+        id=videoId
+    )
+
+    response = request.execute()
+    for item in response['items']:
+        description = item['snippet']['description']
+      
+      
+    f = open('description_file', 'w')
+    f.write(description)
+        
+    return {
+            'Video Description': description
+    }        
 
 # %%
+# Use regex to fetch links from the file
+import os
+import re
+def get_desc_links(filename):
+# Load the file:
+    with open(filename) as f:
+        contents = f.read()
 
+    urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', contents)
+    return urls
+
+#%%
 
 def video_comments(video_id):
     # empty list for storing reply
