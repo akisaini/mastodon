@@ -111,8 +111,25 @@ def get_desc_links(filename):
 
     urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', contents)
     return urls
-
 #%%
+
+'''
+Create method for running the vid_identification on loop on the get_vid_description. 
+Above should run all maxresults videoIds on the get_vid_description. If mentioned 50(max) should get back
+50 queries.(not hard.)Next, it should take all videoId from the output and run it on the get_vid_description.
+This will generate a huge video description text file, on which the regex method will be executed to get
+links back. 
+
+This all can be executed in one go just by getting the search query(q) and maxresults from the user
+in the UI. 
+Another option is to just feed in one videoId in the UI and get back the links for that particular vid. 
+
+These are just the description links. 
+
+Along with get_vid_descriptions, another part would be to run get_comments and store the info in another/same
+file. 
+'''
+
 
 def video_comments(video_id):
     # empty list for storing reply
