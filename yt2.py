@@ -92,7 +92,7 @@ def get_vid_description(videoId):
     for item in response['items']:
         description = item['snippet']['description']
       
-      
+    # Creates a new file: description_file here'  
     f = open('description_file', 'w')
     f.write(description)
         

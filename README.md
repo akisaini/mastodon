@@ -27,6 +27,23 @@ This link includes the documentation for the methods used.
 
 4) Comments throughout the file yt2.py help  explaining the methods. 
 
+
+
+There are 5 methods as of now: 
+
+video_identification(): This method returns the videoId given a query and maxResults by the user. maxResults specifies the maximum number of items that will be returned. Allowed value are 0 to 50 inclusive at once. 
+
+get_vid_stats(): This method returns all the information regarding a video. Needs the videoId as input. Can be changed to gather more information. 
+
+get_vid_description(): This method returns the entire description section of a video as txt and stores it in a file. 
+
+get_desc_links(): This method uses regex to collect and return links from a file. Input is the file created by get_vid_description() method. 
+
+fetch_comments(): This method returns all the information regarding comments. Returns 'comments', 'like count', 'published date', 'replies', 'published date for reply' and 'total comments'. Input required is videoId and maxResults. maxResults specifies the maximum number of items that will be returned. Allowed values are 0 to 100 inclusive at once. The method runs in loop to cover the entire quota of 10,000 API calls in one day.  
+
+
+
+
 --------------------------------------------------------------------
 
 At present, we are able to fetch all the links from a video in it's description section and store that in a file. 
@@ -36,4 +53,3 @@ Next task is to get the links from the comments section of the same video and st
 From trial and error, it has been found that description links are usually way more than links in the comments and replies section. 
 
 --------------------------------------------------------------------
-
