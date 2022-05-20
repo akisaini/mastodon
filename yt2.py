@@ -24,7 +24,8 @@ response = request.execute()
 
 # %%
 # Takes in a simple query and number of results the user is looking for.
-
+# setting a global variable
+vid_id = []
 
 def video_identification(q, maxResults):
     # # Your request can also use the Boolean NOT (-) and OR (|) operators to exclude videos or to find videos that are associated with one of several search terms. For example, to search for videos matching either "boating" or "sailing", set the q parameter value to boating|sailing. Similarly, to search for videos matching either "boating" or "sailing" but not "fishing", set the q parameter value to boating|sailing -fishing.
@@ -33,8 +34,8 @@ def video_identification(q, maxResults):
     # We can add location/Location Radius/Region Code here!
     # Video duration: any/long/medium/short
 
-    # to store video id's
-    vid_id = []
+    # to store video id's. Using global variable to allow changes. 
+    global vid_id
 
     response = youtube.search().list(
         part="snippet",
@@ -80,25 +81,49 @@ def get_vid_stats(videoId):
             'More Content Details': contentDetails
         }
         
-# Below function is just for fetching the description section of the video and putting it in a txt file. - To snatch links.         
+# Below function is just for fetching the description section of one video and putting it in a txt file and displaying it as output. - To snatch links.         
 def get_vid_description(videoId):
-    # This function needs a request call
-    request = youtube.videos().list(
-        part="snippet,contentDetails,statistics",
-        id=videoId
+    # This function needs a request call      
+        request = youtube.videos().list(
+            part="snippet,contentDetails,statistics",
+            id=videoId
     )
-
-    response = request.execute()
-    for item in response['items']:
-        description = item['snippet']['description']
-      
-    # Creates a new file: description_file here'  
-    f = open('description_file', 'w')
-    f.write(description)
+        response = request.execute()
+        for item in response['items']:
+            description = item['snippet']['description']
         
-    return {
-            'Video Description': description
-    }        
+        # Creates a new file: description_file here  
+        with open('description_file', 'a', encoding="utf-8") as f:
+            f.write(description)
+        
+        return {
+        'Video Description': description
+        }
+            
+#%%
+# creating a loop that will pass all the videoIds into the get_vid_description method and will copy the info in a file. 
+
+# The method takes in vid_id as the input. vid_id contains all the videoId's and is also a global parameter. 
+# If nothing is given in as input, it will use the global parameter vid_id as input. 
+
+def get_vid_description_all(vid_id):
+    for i in vid_id:
+        request = youtube.videos().list(
+            part="snippet,contentDetails,statistics",
+            id=i
+    )
+        response = request.execute()
+        for item in response['items']:
+            description = item['snippet']['description']
+        
+        # Creates a new file: description_file here  
+        with open('description_file', 'a', encoding="utf-8") as f:
+            f.write(description)
+            f.write('\n-----\n-----\n----->>\n')
+            f.close()
+            
+    return print(f'Added {len(vid_id)} descriptions in the file.')
+
 
 # %%
 # Use regex to fetch links from the file
@@ -106,13 +131,20 @@ import os
 import re
 def get_desc_links(filename):
 # Load the file:
-    with open(filename) as f:
+    with open(filename, encoding="utf-8") as f:
         contents = f.read()
 
     urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', contents)
     return urls
 #%%
+# Let regex function be there but add functionality to include Spacy library to get links and urls of all kinds. 
+import spacy
+#------------------------------------------------------------------
+#%%
 
+
+
+#%%
 '''
 Create method for running the vid_identification on loop on the get_vid_description. 
 Above should run all maxresults videoIds on the get_vid_description. If mentioned 50(max) should get back

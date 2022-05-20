@@ -1,34 +1,214 @@
-What is BERT (Bidirectional Encoder Representations From Transformers) and how it is used to solve NLP tasks? This video provides a very simple explanation of it. I am not going to go in details of how transformer based architecture works etc but instead I will go over an overview where you understand the usage of BERT in NLP tasks. In coding section we will generate sentence and word embeddings using BERT for some sample text.
+🔥 Support Pilot Blog on Patreon! 
+https://www.patreon.com/PilotBlog
+Find me on PayPal :aviatorssecretary@gmail.com
+Link to PayPal: https://www.paypal.com/donate/?hosted_button_id=ECCSPP8KKKDF6
 
-We will cover various topics such as,
-* Word2vec vc BERT
-* How BERT is trained on masked language model and next sentence completion task
+You may check the military map here: https://militaryland.net/
+https://deepstatemap.live/
 
-⭐️ Timestamps ⭐️
-00:00 Introduction
-00:39 Theory
-11:00 Coding in tensorflow
+Link to Drone Drop: Unable to find the full video on YouTube...
 
-Code: https://github.com/codebasics/deep-learning-keras-tf-tutorial/blob/master/46_BERT_intro/bert_intro.ipynb
+My name is Denys, and I am Boeing 737 Captain. Before I used to fly ATR 42/72. 
+I am making the videos on this Pilot Blog channel to encourage people all around the world to join our aviation community. 
+Here you'll see interesting aviation videos from pilot's perspective. Enjoy:)
 
-BERT article: http://jalammar.github.io/illustrated-bert/
-Word2Vec video: https://www.youtube.com/watch?v=hQwFeIupNP0
 
-Deep learning playlist: https://www.youtube.com/playlist?list=PLeo1K3hjS3uu7CxAacxVndI4bE_o3BDtO
-Machine learning playlist : https://www.youtube.com/playlist?list=PLeo1K3hjS3uvCeTYTeyfe0-rN5r8zn9rw  
+✈ By the way follow me on Instagram I have up to date uploads there. 
+https://www.instagram.com/denys_pilot/
 
-🌎 My Website For Video Courses: https://codebasics.io/
 
-Need help building software or data analytics and AI solutions? My company https://www.atliq.com/ can help. Click on the Contact button on that website.
+✈ Pilot Blog Telegram Channel: 
+https://t.me/pilotblog
 
-🎥 Codebasics Hindi channel: https://www.youtube.com/channel/UCTmFBhuhMibVoSfYom1uXEg
 
-#️⃣ Social Media #️⃣
-🔗 Discord:  https://discord.gg/r42Kbuk
-📸 Instagram: https://www.instagram.com/codebasicshub/
-🔊 Facebook: https://www.facebook.com/codebasicshub
-📱 Twitter: https://twitter.com/codebasicshub
-📝 Linkedin (Personal): https://www.linkedin.com/in/dhavalsays/
-📝 Linkedin (Codebasics):  https://www.linkedin.com/company/codebasics/
+✈ Pilot Blog Discord community:
+https://discord.gg/Yw6hhZgKpz
 
-❗❗ DISCLAIMER: All opinions expressed in this video are of my own and not that of my employers'.
+
+✈ SUBSCRIBE!!!
+https://www.youtube.com/c/PilotBlogAirplanesandAviation
+-----
+-----
+----->>
+#tintuc24hol #tintuc  
+
+▶ TIN TỨC 24H ONLINE là kênh Youtube chia sẻ các nội dung tin tức, bản tin cập nhật 24h online, những nội dung giải trí hấp dẫn được phát sóng trên các kênh chương trình đài truyền hình, các tin tức cập nhật, chương trình truyền hình trực tiếp, chương trình thể thao, bóng đá, giải trí, game show, showbiz… Với mong muốn cập nhật những thông tin chính xác và nhanh nhất trên nền tảng số cho quý vị và các bạn.
+ 
+❤️❤️❤️ Cảm ơn các bạn đã xem video! Các bạn đừng quên nhấn vào ► Đăng Ký Kênh và biểu tượng 🔔 phía dưới góc phải của video để không bỏ lỡ những video mới nhất nhé ❤️❤️❤️
+
+▶ ĐĂNG KÝ KÊNH (miễn phí) TẠI ĐÂY: http://bit.ly/2n4bWWO
+
+▶ Xem những Clip mới và hấp dẫn nhất: 
+- Thể thao: http://bit.ly/2n3dyQt 
+- An ninh ngày mới hôm nay: http://bit.ly/2n6yKoT 
+- Tin tức mới nhất 24h hôm nay: http://bit.ly/2n197pi 
+- Tin tức Công nghệ tổng hợp: http://bit.ly/2l24YAY 
+- Bản tin thời sự Tổng hợp hàng ngày: http://bit.ly/2l3JRyg 
+- Vòng loại World Cup 2020 đội tuyển Việt Nam tổng hợp: http://bit.ly/2n1ddOc 
+
+▶ Theo dõi Kênh TIN TỨC 24H ONLINE  trên: 
+- Facebook : https://www.facebook.com/tt24hol/ 
+- Twitter: https://twitter.com/tt24hol 
+
+▶ Fair use for news reporting (https://www.youtube.com/yt/copyright/...) and (https://en.wikipedia.org/wiki/Fair_use) 
+
+▶ Mọi vấn đề về video vi phạm Bản quyền (https://www.youtube.com/yt/copyright/), Chính sách (https://www.youtube.com/t/terms), 
+- Nguyên tắc cộng đồng (http://www.youtube.com/yt/policyandsa...) chúng tôi sẽ xóa chúng, xin liên hệ trực tiếp qua email: now.tintuc@gmail.com . If there are any copyright issues with any videos posted here We will remove them, please contact our email: now.tintuc@gmail.com
+-----
+-----
+----->>
+Register using link: https://nordvpn.com/defenseupdates to get 60% off the 2-year plan plus Threat Protection from NordVPN. At the checkout use the code DEFENSE to get an extra month for free.
+
+After a long national discussion on sending heavy weapons to Ukraine, German Defense Minister Christine Lambrecht announced that Germany would send 7 PzH 2000 howitzers to counter Russian troops.
+
+“With this we are adding to the five Dutch self-propelled howitzers to reach a total of twelve,” Lambrecht’s ministry said in a tweet, adding that “howitzer training in Germany has been prepared and will begin next week.”
+
+She told a press conference in Sliac, Slovakia, that the 7 PzH 2000 would come from the German Army's pool of weapons, which are in maintenance, so their transfer to Ukraine would not adversely affect the German Army.
+The announcement came a week after the German parliament voted to send “heavy weapons” to Ukraine following weeks of intense debate in Germany on whether that would be a step too far.
+
+In this video Defense Updates analyzes how German origin PzH 2000 howitzers could wreak havoc on Russian Forces? Ukraine ?
+
+#DefenseUpdates #Panzerhaubitze2000 #ukrainerussiawar
+
+CHANNEL LINK:
+Facebook - https://www.facebook.com/DefenseUpdates
+
+SUPPORT US:
+Patron: https://www.patreon.com/defenseupdates
+
+AUDIO:
+scottleffler.com
+
+BACKGROUND MUSIC
+
+https://incompetech.com/music/royalty-free/music.html
+"Giant Wyrm" Kevin MacLeod (incompetech.com)
+
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
+IMAGES USES
+
+www.euractiv.com /  EPA-EFE/Christian Marquardt
+https://www.euractiv.com/section/politics/short_news/german-defence-minister-says-putin-may-go-further-than-ukraine/
+
+www.ukrinform.net / German Defense Ministry
+https://www.ukrinform.net/rubric-ato/3484690-germany-to-deliver-panzerhaubitze-2000-howitzers-gepard-antiaircraft-tanks-bazookas-to-ukraine.html
+
+defbrief.com / German Defense Ministry
+https://defbrief.com/2022/05/03/germany-now-willing-to-send-pzh-2000-self-propelled-howitzers-to-ukraine/
+
+wikipedia.org / Gerben van Es / Ministerie van Defensie
+https://en.wikipedia.org/wiki/Panzerhaubitze_2000
+
+allnewspress.com / German Defense Ministry
+https://allnewspress.com/panzerhaubitze-2000-one-of-the-most-modern-and-dangerous-artillery-systems-in-the-world/
+
+www.thedefensepost.com  / Krauss-Maffei Wegmann
+https://www.thedefensepost.com/2022/05/04/germany-long-range-howitzers-ukraine/
+-----
+-----
+----->>
+Link to Ground News: ground.news/mrspherical
+
+Russia and Ukraine's conflict has turned the world upside down. But how did it all start? Why did it come to this? In this special episode of MrSpherical, we explore the backstory of Russia and Ukraine's friendship, from their days during the USSR, all the way to the invasion that's currently going on.
+
+If you like the education we're doing, supporting us via YouTube memberships (or YouTube "Super Thanks") would be greatly appreciated. Our videos take a long time to make, and are sometimes too controversial for sponsors. So your financial help directly is most appreciated. 
+https://www.youtube.com/channel/UCfhc7xi7-ZDfpVsjIaFjkgw/join
+
+Our TikTok: https://www.tiktok.com/@mrspherical
+Our Discord (now open!): https://discord.gg/sXBpc23D
+
+MrSpherical is a channel that creates CountryBalls Animation content. We vaguely follow the PolandBalls format, but not always. Focusing on geopolitical commentary about current events and history. If you like PolandBalls memes, Countryballs memes, history memes, and animation content in general - then you'll probably like our content! Fellow creators who make similar videos include - No Idea Animation, PWA, Kaliningrad General and Art's Animation. Have you seen them? :) 
+
+#countryballs #animation #countryball #mrspherical #polandball #ukraine #russia #ukraineonline #ivanofrankivsk #ukraina_blog #украина #ternopil #kiev #lviv #odessagram #kharkiv #odessa #nato #otan #StopWar #Ukrainian
+-----
+-----
+----->>
+Sky's Alex Crawford reports from Severodonetsk in eastern Ukraine, the one remaining pocket of Ukrainian resistance in the war-zone which is Luhansk.
+
+There are estimated to be a few thousand civilians left in the city - many of whom have stayed to care for elderly relatives - and they are living without electricity, running water, phone or internet connection, and under the constant threat of Russian shelling.
+
+SUBSCRIBE to our YouTube channel for more videos: http://www.youtube.com/skynews 
+
+Follow us on Twitter: https://twitter.com/skynews 
+Like us on Facebook: https://www.facebook.com/skynews 
+Follow us on Instagram: https://www.instagram.com/skynews 
+Follow us on TikTok: https://www.tiktok.com/@skynews
+
+For more content go to http://news.sky.com and download our apps: 
+Apple: https://itunes.apple.com/gb/app/sky-news/id316391924?mt=8 
+Android https://play.google.com/store/apps/details?id=com.bskyb.skynews.android&hl=en_GB 
+
+Sky News videos are now available in Spanish here/Los video de Sky News están disponibles en español aquí https://www.youtube.com/channel/skynewsespanol
+Sky News videos are also available in German here/Hier können Sie außerdem Sky News-Videos auf Deutsch finden: https://www.youtube.com/channel/UCHYg31l2xrF-Bj859nsOfnA
+
+To enquire about licensing Sky News content, you can find more information here:  https://news.sky.com/info/library-sales
+-----
+-----
+----->>
+Twelve people have been killed and dozens injured in heavy Russian shell attacks in eastern Ukraine, as Nato's secretary general said Moscow's offensive in the Donbas appeared to have stalled. 
+
+(Subscribe: https://bit.ly/C4_News_Subscribe) 
+
+However, he warned that this didn’t mean Russia had abandoned its strategic goals, adding “we should be prepared for a protracted war”.
+
+Ukraine's forces have also managed to push back the Russians in the area around Kharkiv. Today military chiefs said a total of 23 settlements had now been liberated - mainly in that region. 
+
+Warning: There are distressing images in this report.
+ -----------------------  
+Follow us on Instagram - https://www.instagram.com/Channel4News
+-----
+-----
+----->>
+Join this channel to get access to perks:
+https://www.youtube.com/channel/UC2JaXg63L_VqvXN4SwF4zOQ/join
+
+Ukrainian gunners shelled a Russian air-defense system in eastern Ukraine probably sometime in the past couple of days.
+
+The used audio is from the Youtube audio library 
+
+FB page:
+https://www.facebook.com/warthogdefense/
+
+This video is created with Adobe premiere pro
+
+Warthog Defense members are sharing stories, insider tips, news from the front lines, and unique slices of military life including the tough stuff of war.
+
+Warthog Defense provides headline news and technology updates since our community answers the call and makes news. We also cover the rest of the military experience —and in our military equipment guide we present what makes the military unique (and fun).
+
+#Warthogdefense
+-----
+-----
+----->>
+Besuche auch unsere anderen Kanäle:
+
+***Mehr Videos: www.oe24.at/video
+
++++Facebook: facebook.com/oe24.at/
+
+---Instagram: instagram.com/oe24.at/
+-----
+-----
+----->>
+News and Info
+-----
+-----
+----->>
+Fmr. Ukrainian President Petro Poroshenko speaks with José Díaz-Balart about the latest updates from Ukraine. This is "the beginning of the end of the Putin regime," Poroshenko states.
+
+» Subscribe to MSNBC: http://on.msnbc.com/SubscribeTomsnbc
+
+About: MSNBC is the premier destination for in-depth analysis of daily headlines, insightful political commentary and informed perspectives. Reaching more than 95 million households worldwide, MSNBC offers a full schedule of live news coverage, political opinions and award-winning documentary programming -- 24 hours a day, 7 days a week.
+
+Connect with MSNBC Online
+Visit msnbc.com: http://on.msnbc.com/Readmsnbc
+Subscribe to MSNBC Newsletter: MSNBC.com/NewslettersYouTube
+Find MSNBC on Facebook: http://on.msnbc.com/Likemsnbc
+Follow MSNBC on Twitter: http://on.msnbc.com/Followmsnbc
+Follow MSNBC on Instagram: http://on.msnbc.com/Instamsnbc
+
+Fmr. Ukrainian President: 'Ukraine Will Never Give Up'
+-----
+-----
+----->>
