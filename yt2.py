@@ -93,7 +93,7 @@ def get_vid_description(videoId):
             description = item['snippet']['description']
         
         # Creates a new file: description_file here  
-        with open('description_file', 'a', encoding="utf-8") as f:
+        with open('description_file', 'a', encoding='utf-8') as f:
             f.write(description)
         
         return {
@@ -131,14 +131,30 @@ import os
 import re
 def get_desc_links(filename):
 # Load the file:
-    with open(filename, encoding="utf-8") as f:
+    with open(filename, encoding='utf-8') as f:
         contents = f.read()
 
     urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', contents)
     return urls
 #%%
-# Let regex function be there but add functionality to include Spacy library to get links and urls of all kinds. 
+# Below requires the Spacy package to be installed.
+# Spacy is a nlp package which can help in fetching links from a file. 
+# pip install spacy 
+
+# regex function is still there but adding this functionality to get links and urls of all kinds. 
+
+# Feel Spacy can do a better job at grabbing links of different kinds. 
+
 import spacy
+nlp = spacy.load('en_core_web_sm')
+f = open('description_file', 'r', encoding = 'utf-8' )
+
+doc = nlp(f.read())
+links = []
+for token in doc:
+    if token.like_email or token.like_url:
+        links.append(token)
+print(f'There are {len(links)} description links.\n{links}') 
 #------------------------------------------------------------------
 #%%
 
@@ -229,8 +245,9 @@ response = youtube.commentThreads().list(
     order='time',
     videoId='lSowC-w4aFY'
 ).execute()
+
 # %%
-# stores comment information from a video. VideoID and MaxResults are required parameters. Rest are optional, set already.
+# stores comment and reply information from a video. VideoID and MaxResults are required parameters. Rest are optional, set already.
 
 
 def fetch_comments(videoId, maxResults, part='id, replies, snippet',  textFormat='plainText', order='time'):
