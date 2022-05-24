@@ -156,97 +156,10 @@ for token in doc:
         links.append(token)
 print(f'There are {len(links)} description links.\n{links}') 
 #------------------------------------------------------------------
-#%%
-
-
-
-#%%
-'''
-Create method for running the vid_identification on loop on the get_vid_description. 
-Above should run all maxresults videoIds on the get_vid_description. If mentioned 50(max) should get back
-50 queries.(not hard.)Next, it should take all videoId from the output and run it on the get_vid_description.
-This will generate a huge video description text file, on which the regex method will be executed to get
-links back. 
-
-This all can be executed in one go just by getting the search query(q) and maxresults from the user
-in the UI. 
-Another option is to just feed in one videoId in the UI and get back the links for that particular vid. 
-
-These are just the description links. 
-
-Along with get_vid_descriptions, another part would be to run get_comments and store the info in another/same
-file. 
-'''
-
-
-def video_comments(video_id):
-    # empty list for storing reply
-    replies = []
-
-    # retrieve youtube video results
-    video_response = youtube.commentThreads().list(
-        part='snippet,replies',
-        videoId=video_id
-    ).execute()
-
-    # iterate video response
-    while video_response:
-
-        # extracting required info
-        # from each result object
-        for item in video_response['items']:
-
-            # Extracting comments
-            comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-
-            # counting number of reply of comment
-            replycount = item['snippet']['totalReplyCount']
-
-            # if reply is there
-            if replycount > 0:
-
-                # iterate through all reply
-                for reply in item['replies']['comments']:
-
-                    # Extract reply
-                    reply = reply['snippet']['textDisplay']
-
-                    # Store reply is list
-                    replies.append(reply)
-
-            # print comment with list of reply
-            print(comment, replies, end='\n\n')
-
-            # empty reply list
-            replies = []
-
-        # Again repeat
-        if 'nextPageToken' in video_response:
-            video_response = youtube.commentThreads().list(
-                part='snippet,replies',
-                videoId=video_id
-            ).execute()
-        else:
-            break
-
-
-# Enter video id
-video_id = "Enter Video ID"
-
-# Call function
-video_comments(video_id)
-
 
 # %%
-response = youtube.commentThreads().list(
-    part='id, replies, snippet',
-    maxResults=30,
-    textFormat='plainText',
-    order='time',
-    videoId='lSowC-w4aFY'
-).execute()
+# For a single videoId: 
 
-# %%
 # stores comment and reply information from a video. VideoID and MaxResults are required parameters. Rest are optional, set already.
 
 
@@ -328,3 +241,90 @@ def fetch_comments(videoId, maxResults, part='id, replies, snippet',  textFormat
 
 
 # %%
+# 
+# To run through a list of VideoId's:
+
+def fetch_comments_all(vid_id, maxResults):
+    # Generate response.
+    part='id, replies, snippet'
+    textFormat='plainText'
+    order='time'
+    # create empty list to store info.
+    comments = []
+    comment_ids = []
+    replies = []
+    likes = []
+    published_dates = []
+    reply_comment = []
+    reply_posted = []
+    reply_likes = []
+    for i in vid_id:
+        response = youtube.commentThreads().list(
+            part=part,
+            maxResults=maxResults,
+            textFormat=textFormat,
+            order=order,
+            videoId=i
+        ).execute()
+# Will continue until API Quota is maxed out or Comments run out. 10,000 units for a day. Each commentThread call is 1 unit.
+        while response:
+
+        # Will only get the comments.
+            for item in response['items']:
+                comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+                with open('description_file', 'a', encoding="utf-8") as f:
+                    f.write(comment)
+                    f.close()
+                comments.append(comment)
+                comment_id = item['snippet']['topLevelComment']['id']      
+                comment_ids.append(comment_id)
+                reply_count = item['snippet']['totalReplyCount']  
+                replies.append(reply_count)
+                like_count = item['snippet']['topLevelComment']['snippet']['likeCount']             
+                likes.append(like_count)
+                comment_published = item['snippet']['topLevelComment']['snippet']['publishedAt']              
+                published_dates.append(comment_published)
+
+ # Will get the replies (fetches the reply information from a comment video)
+            for item in response['items']:
+                if item['snippet']['totalReplyCount'] >= 1:
+                    for i in range(len(item['replies']['comments'])):                       
+                        rep_comment = item['replies']['comments'][i]['snippet']['textOriginal']
+                        with open('description_file', 'a', encoding="utf-8") as f:
+                            f.write(rep_comment)
+                            f.write('----\n----\n----\n---->\n')
+                            f.close()
+                        reply_comment.append(rep_comment)                                 
+                        publish_date = item['replies']['comments'][i]['snippet']['publishedAt']        
+                        reply_posted.append(publish_date)                  
+                        like_count = item['replies']['comments'][i]['snippet']['likeCount']           
+                        reply_likes.append(like_count)
+                else:
+                    pass
+
+    # Finally, return the data back
+    return {
+        'Comments': comments,
+        'Comment Id': comment_ids,
+        'Reply Count': replies,
+        'Likes Count': likes,
+        'Published Date of Comment': published_dates,
+        'Replies': reply_comment,
+        'Published Date of Reply': reply_posted,
+        'Likes on Reply': reply_likes,
+        # below includes comments + replies.
+        'Number of Total Comments': len(comment_ids)+len(reply_comment)
+    }
+    
+#%%
+
+
+
+
+
+
+
+
+
+
+
