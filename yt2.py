@@ -243,14 +243,14 @@ def fetch_comments(videoId, maxResults, part='id, replies, snippet',  textFormat
 # %%
 # 
 # To run through a list of VideoId's:
-
+comments  = []
 def fetch_comments_all(vid_id, maxResults):
     # Generate response.
-    part='id, replies, snippet'
+    part='id, snippet'
     textFormat='plainText'
     order='time'
     # create empty list to store info.
-    comments = []
+    global comments
     comment_ids = []
     replies = []
     likes = []
@@ -258,23 +258,19 @@ def fetch_comments_all(vid_id, maxResults):
     reply_comment = []
     reply_posted = []
     reply_likes = []
+    
     for i in vid_id:
         response = youtube.commentThreads().list(
             part=part,
-            maxResults=maxResults,
-            textFormat=textFormat,
+            maxResults=maxResults, # 0 to 100 inclusive
+            textFormat=textFormat, 
             order=order,
             videoId=i
         ).execute()
 # Will continue until API Quota is maxed out or Comments run out. 10,000 units for a day. Each commentThread call is 1 unit.
         while response:
-
-        # Will only get the comments.
             for item in response['items']:
                 comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-                with open('description_file', 'a', encoding="utf-8") as f:
-                    f.write(comment)
-                    f.close()
                 comments.append(comment)
                 comment_id = item['snippet']['topLevelComment']['id']      
                 comment_ids.append(comment_id)
@@ -284,36 +280,40 @@ def fetch_comments_all(vid_id, maxResults):
                 likes.append(like_count)
                 comment_published = item['snippet']['topLevelComment']['snippet']['publishedAt']              
                 published_dates.append(comment_published)
-
+                
+                
+#    with open('description_file', 'a', encoding="utf-8") as f:
+#        f.write(comments)
+#        f.close()           
  # Will get the replies (fetches the reply information from a comment video)
-            for item in response['items']:
-                if item['snippet']['totalReplyCount'] >= 1:
-                    for i in range(len(item['replies']['comments'])):                       
-                        rep_comment = item['replies']['comments'][i]['snippet']['textOriginal']
-                        with open('description_file', 'a', encoding="utf-8") as f:
-                            f.write(rep_comment)
-                            f.write('----\n----\n----\n---->\n')
-                            f.close()
-                        reply_comment.append(rep_comment)                                 
-                        publish_date = item['replies']['comments'][i]['snippet']['publishedAt']        
-                        reply_posted.append(publish_date)                  
-                        like_count = item['replies']['comments'][i]['snippet']['likeCount']           
-                        reply_likes.append(like_count)
-                else:
-                    pass
+#            for item in response['items']:
+#                if item['snippet']['totalReplyCount'] >= 1:
+#                    for i in range(len(item['replies']['comments'])):                       
+#                        rep_comment = item['replies']['comments'][i]['snippet']['textOriginal']
+#                        with open('description_file', 'a', encoding="utf-8") as f:
+#                            f.write(rep_comment)
+#                            f.write('----\n----\n----\n---->\n')
+#                            f.close()
+#                        reply_comment.append(rep_comment)                                 
+#                        publish_date = item['replies']['comments'][i]['snippet']['publishedAt']        
+#                        reply_posted.append(publish_date)                  
+#                        like_count = item['replies']['comments'][i]['snippet']['likeCount']           
+#                        reply_likes.append(like_count)
+#                else:
+#                    pass
 
     # Finally, return the data back
     return {
         'Comments': comments,
         'Comment Id': comment_ids,
-        'Reply Count': replies,
-        'Likes Count': likes,
-        'Published Date of Comment': published_dates,
-        'Replies': reply_comment,
-        'Published Date of Reply': reply_posted,
-        'Likes on Reply': reply_likes,
+#        'Reply Count': replies,
+#        'Likes Count': likes,
+#        'Published Date of Comment': published_dates,
+#        'Replies': reply_comment,
+#        'Published Date of Reply': reply_posted,
+#        'Likes on Reply': reply_likes,
         # below includes comments + replies.
-        'Number of Total Comments': len(comment_ids)+len(reply_comment)
+#        'Number of Total Comments': len(comment_ids)+len(reply_comment)
     }
     
 #%%
