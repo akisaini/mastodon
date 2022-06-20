@@ -21,7 +21,7 @@ new_search = search_words + " -filter:retweets"
 #csvFile = open('tweets', 'a')
 #csvWriter = csv.writer(csvFile)
 
-fetched_tweets = api.search_tweets(new_search, count = 10)
+fetched_tweets = api.search_tweets(new_search, maxResults = 10)
    # parsing tweets one by one
 print(fetched_tweets)
 
